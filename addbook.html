@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/app.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+</head>
+<body>
+    <div class="form-container">
+        <div class="form-header">
+          <h2>Add a new book</h2>
+        </div>
+        <form class="form-fields" action="/www.google.com" method="GET">
+          <div class="form-field">
+            <label for="author">Author:</label>
+            <input type="text" id="author" name="author" required />
+          </div>
+          <div class="form-field">
+            <label for="book-name">Book Name:</label>
+            <input type="text" id="book-name" name="book-name" required />
+          </div>
+          <div class="form-field">
+            <label for="genre">Genre:</label>
+            <select id="genre" name="genre" required>
+              <option value="" disabled selected>Select a genre</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Non-fiction">Non-fiction</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Romance">Romance</option>
+              <option value="Sci-fi">Sci-fi</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Children's">Children's</option>
+              <option value="Young Adult">Young Adult</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="recommendability">Recommendability:</label>
+            <input type="range" min="1"max="5" id="recommendability" name="recommendability" required />
+        </div>
+        <!-- <div class="form-field">
+        <label for="review">Review:</label>
+        <textarea id="review" name="review" required></textarea>
+        </div> -->
+        
+          </form>
+          <div class="form-actions" id="submit-button">
+            <button class="submit-button">Submit</button>
+          </div>
+        </div>
+</body>
+</html>
