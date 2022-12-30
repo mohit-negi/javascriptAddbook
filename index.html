@@ -18,102 +18,83 @@
     <!--all divs inside this-->
     <div class="container">
         <!-- Book divs -->
-    <div class="book-div">
-        <!-- Book logo -->
-        <!-- <img class="book-logo" src="book-logo.png" alt="Book logo">
-   -->
-        <!-- Author and title -->
-        <div class="author-title">
-          <p>Author: John Smith</p>
-          <p>Title: The Great Gatsby</p>
-        </div>
-  
-        <!-- Recommendability -->
-        <div class="recommendability">
-          <img src="thumbs-up.png" alt="Thumbs up">
-          <p>Highly recommend</p>
-        </div>
-      </div>
-      <div class="book-div">
-          <!-- Book logo
-          <img class="book-logo" src="book-logo.png" alt="Book logo">
-     -->
-          <!-- Author and title -->
-          <div class="author-title">
-            <p>Author: John Smith</p>
-            <p>Title: The Great Gatsby</p>
-          </div>
-    
-          <!-- Recommendability -->
-          <div class="recommendability">
-            <img src="thumbs-up.png" alt="Thumbs up">
-            <p>Highly recommend</p>
-          </div>
-        </div>
-        <div class="book-div">
-          <!-- Book logo -->
-          <!-- <img class="book-logo" src="book-logo.png" alt="Book logo">
-     -->
-          <!-- Author and title -->
-          <div class="author-title">
-            <p>Author: John Smith</p>
-            <p>Title: The Great Gatsby</p>
-          </div>
-    
-          <!-- Recommendability -->
-          <div class="recommendability">
-            <img src="thumbs-up.png" alt="Thumbs up">
-            <p>Highly recommend</p>
-          </div>
-        </div>
-        <div class="book-div">
-            <!-- Book logo -->
-            <!-- <img class="book-logo" src="book-logo.png" alt="Book logo">
-       -->
-            <!-- Author and title -->
-            <div class="author-title">
-              <p>Author: John Smith</p>
-              <p>Title: The Great Gatsby</p>
-            </div>
+        <script>
+        function displayStars(value) {
+            // Initialize an empty string to hold the HTML code
+            var html = '';
+
+            // Calculate the number of full stars to display
+            var numStars = Math.floor(value / 2);
+
+            // Loop to create the necessary number of full stars
+            for (var i = 0; i < numStars; i++) {
+                html += '<div class="star"></div>';
+            }
+
+            // Add a half star if necessary
+            if (value % 2 !== 0) {
+                html += '<div class="star half-star"></div>';
+            }
+
+            // Return the HTML code
+            return html;
+        }
+
+        function displayBookDivs(books) {
+            
+            const bookDivs = books.map(book => {
+                return `
+                  <div class="book-div">
+                    <p>Author: ${book.author}</p>
+                    <p>Title: ${book.title}</p>
+                    <div class="recommendability">
+                      Recommendability:
+                      <h1 class="star-container"></h1>
+                    </div>
+                  </div>
+                `;
+              });
       
-            <!-- Recommendability -->
-            <div class="recommendability">
-              <img src="thumbs-up.png" alt="Thumbs up">
-              <p>Highly recommend</p>
-            </div>
-          </div>
-          <div class="book-div">
-              <!-- Book logo
-              <img class="book-logo" src="book-logo.png" alt="Book logo">
-         -->
-              <!-- Author and title -->
-              <div class="author-title">
-                <p>Author: John Smith</p>
-                <p>Title: The Great Gatsby</p>
-              </div>
-        
-              <!-- Recommendability -->
-              <div class="recommendability">
-                <img src="thumbs-up.png" alt="Thumbs up">
-                <p>Highly recommend</p>
-              </div>
-            </div>
-            <div class="book-div">
-              <!-- Book logo -->
-              <!-- <img class="book-logo" src="book-logo.png" alt="Book logo">
-         -->
-              <!-- Author and title -->
-              <div class="author-title">
-                <p>Author: John Smith</p>
-                <p>Title: The Great Gatsby</p>
-              </div>
-        
-              <!-- Recommendability -->
-              <div class="recommendability">
-                <img src="thumbs-up.png" alt="Thumbs up">
-                <p>Highly recommend</p>
-              </div>
-            </div>
+              document.querySelector('.container').innerHTML = bookDivs.join('');
+            }
+            document.querySelector('.star-container').innerHTML = html.join('');
+
+            displayBookDivs([
+              {
+                author: "Jane Austen",
+                title: "Pride and Prejudice",
+                recommendability: 8
+              },
+              {
+                author: "George Orwell",
+                title: "1984",
+                recommendability: 9
+              },
+              {
+                author: "F. Scott Fitzgerald",
+                title: "The Great Gatsby",
+                recommendability: 7
+              }
+            ]);
+      
+            displayBookDivs([
+              {
+                author: "J.R.R. Tolkien",
+                title: "The Lord of the Rings",
+                recommendability: 10
+              },
+              {
+                author: "J.K. Rowling",
+                title: "Harry Potter and the Sorcerer's Stone",
+                recommendability: 9
+              },
+              {
+                author: "Stephen King",
+                title: "The Shining",
+                recommendability: 8
+              }
+            ]);
+          </script>
     </div>
 
 </body>

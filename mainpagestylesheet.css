@@ -5,7 +5,7 @@
  }
  /* Style for the main button */
  .big-button {
-    display: block;
+    display: flex;
     align-items: center;
     justify-content: center;
     width: 80vw;
